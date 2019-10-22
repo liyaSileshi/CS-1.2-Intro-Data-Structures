@@ -7,8 +7,10 @@ quotes = ("It's just a flesh wound.",
 
 def random_python_quote():
     rand_index = random.randint(0, len(quotes) - 1)
+    # print(__name__)
     return quotes[rand_index]
 
 if __name__ == '__main__':
     quote = random_python_quote()
     print(quote)
+    
