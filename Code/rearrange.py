@@ -21,8 +21,3 @@ def random_rearrange(words):
 
 if __name__ == '__main__':
     random_rearrange(args)
-# print(__name__)
-
-# if __name__ == '__main__':
-#     quote = random_rearrange()
-#     print(quote)
