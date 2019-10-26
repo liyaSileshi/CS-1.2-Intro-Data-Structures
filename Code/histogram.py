@@ -16,14 +16,13 @@ def histogram():
             word_freq.append(split_words.count(word))
         print(word_freq)
 
-
         #tuple
         #https://programminghistorian.org/en/lessons/counting-frequencies
         tuple_histogram = list(zip(split_words, word_freq))
         print(tuple_histogram)
         unique_tuple = []
-        for pairs in tuple_histogram:
-            if pairs not in unique_tuple:
+        for pairs in tuple_histogram :
+            if pairs not in unique_tuple :
                 unique_tuple.append(pairs)
 
 
@@ -32,11 +31,11 @@ def histogram():
 
         #print(list(split_words,word_freq))
 
-def unique_words(list):
+def unique_words(list) :
     count = 0
-    for tuple in list:
+    for tuple in list :
         #print(tuple[1])
-        if tuple[1] == 1:
+        if tuple[1] == 1 :
             print(tuple[1])
             count += 1
     print(count)
@@ -44,9 +43,12 @@ def unique_words(list):
 
 
 def frequency(word, histogram) :
-    
+    for i in histogram :
+        if i[0] == word:
+            return i[1]
 
 
 hist = histogram()
 unique_words(hist)
-frequency('hi',)
+print(frequency('hi',hist))
+
