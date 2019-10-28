@@ -3,29 +3,18 @@ def histogram():
         words = file.read()
         split_words = words.split()
        
-       #unique words
-        unique_words = [] 
-        for word in split_words:
-            if word not in unique_words:
-                unique_words.append(word)
-        # print(unique_words)
-
         #frequency of each word
         word_freq = []
         for word in split_words :
             word_freq.append(split_words.count(word))
-        # print(word_freq)
-
-
+        
         #list
         big_list = []
         for word in split_words:
             if [word,split_words.count(word)] not in big_list :
                 big_list.append([word, split_words.count(word)])
         return big_list
-        # print(big_list)
-
-
+        
 
         #dictionary
         dictionary = []
@@ -52,10 +41,8 @@ def histogram():
                 unique_tuple.append(pairs)
 
 
-        # print(unique_tuple)
-        # return unique_tuple
+        
 
-        #print(list(split_words,word_freq))
 
 def unique_words(list) :
     count = 0
@@ -73,22 +60,34 @@ def frequency(word, histogram) :
         if i[0] == word:
             return i[1]
 
+
+
 def write(histogram) :
     
-    #https://stackoverflow.com/questions/30711899/python-how-to-write-list-of-lists-to-file
-    with open('write_hist.txt', 'a') as file :
+    with open('write_hist.txt', 'w') as file :
         for word in histogram :
             file.write(word[0] + ' ')
             file.write(str(word[1])+ '\n')
 
+def analysis(histogram): 
+    sum = 0
+    for word in histogram :
+        sum += word[1]
+    print(f'sum: {sum}')
+    mean = sum/len(histogram)
+    print(f'mean: {mean}')
+    
 
-        # file.write(histogram)
+#What is the least/most frequent word(s)?
+#How many different words are used? unique_words(list)
+#What is the average (mean/median/mode) frequency of words in the text? 
+
 
 if __name__ == '__main__':
-
     hist = histogram()
     print(hist)
     unique_words(hist)
-    print(frequency('Sherlock',hist))
-    write(hist)
+    print(frequency('hi',hist))
+    analysis(hist)
+    #write(hist)
 
