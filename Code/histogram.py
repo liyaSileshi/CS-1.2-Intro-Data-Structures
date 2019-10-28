@@ -22,6 +22,7 @@ def histogram():
         for word in split_words:
             if [word,split_words.count(word)] not in big_list :
                 big_list.append([word, split_words.count(word)])
+        return big_list
         # print(big_list)
 
 
@@ -52,7 +53,7 @@ def histogram():
 
 
         # print(unique_tuple)
-        return unique_tuple
+        # return unique_tuple
 
         #print(list(split_words,word_freq))
 
@@ -72,10 +73,22 @@ def frequency(word, histogram) :
         if i[0] == word:
             return i[1]
 
+def write(histogram) :
+    
+    #https://stackoverflow.com/questions/30711899/python-how-to-write-list-of-lists-to-file
+    with open('write_hist.txt', 'a') as file :
+        for word in histogram :
+            file.write(word[0] + ' ')
+            file.write(str(word[1])+ '\n')
+
+
+        # file.write(histogram)
 
 if __name__ == '__main__':
 
     hist = histogram()
+    print(hist)
     unique_words(hist)
     print(frequency('Sherlock',hist))
+    write(hist)
 
