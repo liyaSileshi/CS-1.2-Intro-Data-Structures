@@ -31,7 +31,7 @@ def histogram():
         for word in split_words:
             if {word : split_words.count(word)} not in dictionary :
                 dictionary.append({word:split_words.count(word)})
-        print(dictionary)
+        # print(dictionary)
         
 
         #tuple
@@ -39,7 +39,7 @@ def histogram():
         for word in split_words:
             if (word,split_words.count(word)) not in big_tuple :
                 big_tuple.append((word, split_words.count(word)))
-        print(big_tuple)
+        # print(big_tuple)
 
         #tuple
         #https://programminghistorian.org/en/lessons/counting-frequencies
@@ -51,7 +51,7 @@ def histogram():
                 unique_tuple.append(pairs)
 
 
-        print(unique_tuple)
+        # print(unique_tuple)
         return unique_tuple
 
         #print(list(split_words,word_freq))
@@ -61,7 +61,7 @@ def unique_words(list) :
     for tuple in list :
         #print(tuple[1])
         if tuple[1] == 1 :
-            print(tuple[1])
+            # print(tuple[1])
             count += 1
     print(count)
     return count
@@ -73,8 +73,9 @@ def frequency(word, histogram) :
             return i[1]
 
 
+if __name__ == '__main__':
 
-hist = histogram()
-unique_words(hist)
-print(frequency('food',hist))
+    hist = histogram()
+    unique_words(hist)
+    print(frequency('Sherlock',hist))
 
