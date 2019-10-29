@@ -8,7 +8,7 @@ def hist_dictionary():
                 dictionary[word] += 1
             else :
                 dictionary[word] = 1
-        print(dictionary)
+        #print(dictionary)
         return dictionary
         
 
