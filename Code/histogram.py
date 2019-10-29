@@ -2,8 +2,6 @@ def hist_dictionary():
     with open('alice.txt') as file :
         words = file.read()
         split_words = words.split()
-
-        #dictionary
         dictionary = {}
         for word in split_words:
             if word in dictionary :
@@ -18,13 +16,26 @@ def hist_list():
     with open('alice.txt') as file :
         words = file.read()
         split_words = words.split()
-
-        #list
+        index = 0
+        count = 0
         big_list = []
+        #all words with a zero value
+        #when looping through split words, whenever the word exists,
+        #  increase value by 1
         for word in split_words:
-            if [word, split_words.count(word)] not in big_list :
-                big_list.append([word, split_words.count(word)])
-        #return big_list
+            if [word,count] not in big_list :
+                big_list.append([word,count])
+
+        for word in split_words:
+            for i in range(len(big_list)) :
+                if big_list[i][index] == word :
+                    # print(word)
+                    big_list[i][1] += 1
+            # if big_list[index][0] == word:
+            #     count += 1
+   
+        print(big_list)
+       
         
 
 def hist_tuple():
@@ -75,7 +86,7 @@ def hist_counts_list():
         #print(counts_list)
         # print(counts_list[1][0])
 
-#fix unique words
+
 def unique_words_dict(list) :
     count = 0
     for key in list :
@@ -109,10 +120,11 @@ def analysis(histogram):
 #What is the average (mean/median/mode) frequency of words in the text? 
 if __name__ == '__main__':
     hist = hist_dictionary()
+    hist_list()
     # print(hist)
 
     unique_words_dict(hist)
-    #print(frequency('hi',hist))
+    # print(frequency('fish',hist))
     #analysis(hist)
     #write(hist)
 
