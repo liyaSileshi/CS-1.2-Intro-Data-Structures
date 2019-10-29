@@ -33,6 +33,7 @@ def hist_list():
                     # print(word)
                     big_list[i][1] += 1
         print(big_list)
+        return big_list
        
 def hist_tuple():
     with open('alice.txt') as file :
