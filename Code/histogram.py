@@ -19,6 +19,7 @@ def hist_list():
         index = 0
         count = 0
         big_list = []
+
         #all words with a zero value
         #when looping through split words, whenever the word exists,
         #  increase value by 1
@@ -31,13 +32,8 @@ def hist_list():
                 if big_list[i][index] == word :
                     # print(word)
                     big_list[i][1] += 1
-            # if big_list[index][0] == word:
-            #     count += 1
-   
         print(big_list)
        
-        
-
 def hist_tuple():
     with open('alice.txt') as file :
         words = file.read()
@@ -95,10 +91,10 @@ def unique_words_dict(list) :
     return count
 
 
-def frequency(word, histogram) :
-    for i in histogram :
-        if i[0] == word:
-            return i[1]
+def frequency_dict(word, histogram) :
+    # for i in histogram :
+        # if i == word:
+    return histogram[word]
 
 def write(histogram) :
     with open('write_hist.txt', 'w') as file :
@@ -124,7 +120,7 @@ if __name__ == '__main__':
     # print(hist)
 
     unique_words_dict(hist)
-    # print(frequency('fish',hist))
+    print(frequency_dict('two',hist))
     #analysis(hist)
     #write(hist)
 
