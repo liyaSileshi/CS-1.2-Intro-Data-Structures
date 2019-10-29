@@ -1,29 +1,43 @@
-def histogram():
+def hist_dictionary():
     with open('alice.txt') as file :
         words = file.read()
         split_words = words.split()
-       
+
+        #dictionary
+        dictionary = {}
+        for word in split_words:
+            if word in dictionary :
+                dictionary[word] += 1
+            else :
+                dictionary[word] = 1
+        print(dictionary)
+        return dictionary
+        
+
+def hist_list():
+    with open('alice.txt') as file :
+        words = file.read()
+        split_words = words.split()
+
+        #list
+        big_list = []
+        for word in split_words:
+            if [word, split_words.count(word)] not in big_list :
+                big_list.append([word, split_words.count(word)])
+        #return big_list
+        
+
+def hist_tuple():
+    with open('alice.txt') as file :
+        words = file.read()
+        split_words = words.split()
+
         #frequency of each word
         word_freq = []
         for word in split_words :
             word_freq.append(split_words.count(word))
         
-        #list
-        big_list = []
-        for word in split_words:
-            if [word,split_words.count(word)] not in big_list :
-                big_list.append([word, split_words.count(word)])
-        return big_list
-        
-
-        #dictionary
-        dictionary = []
-        for word in split_words:
-            if {word : split_words.count(word)} not in dictionary :
-                dictionary.append({word:split_words.count(word)})
-        # print(dictionary)
-        
-
+    
         #tuple
         big_tuple = []
         for word in split_words:
@@ -40,17 +54,32 @@ def histogram():
             if pairs not in unique_tuple :
                 unique_tuple.append(pairs)
 
+def hist_counts_list():
+    with open('alice.txt') as file :
+        words = file.read()
+        split_words = words.split()
 
-        
+        #counts_list
+        counts_list = []
+        for word in split_words:
+            if (split_words.count(word), [word]) not in counts_list:
+                for i in counts_list:
+                    # if counts_list.index(i)[0] == split_words.count(word):
+                    #     counts_list.index(i)[1].append(word)
+                    
+                    # else:
+                    #     counts_list.append((split_words.count(word),[word]))
+                    print(counts_list.index(word))
 
+       # print('counts list: ')
+        #print(counts_list)
+        # print(counts_list[1][0])
 
-def unique_words(list) :
+#fix unique words
+def unique_words_dict(list) :
     count = 0
-    for tuple in list :
-        #print(tuple[1])
-        if tuple[1] == 1 :
-            # print(tuple[1])
-            count += 1
+    for key in list :
+        count += 1
     print(count)
     return count
 
@@ -60,10 +89,7 @@ def frequency(word, histogram) :
         if i[0] == word:
             return i[1]
 
-
-
 def write(histogram) :
-    
     with open('write_hist.txt', 'w') as file :
         for word in histogram :
             file.write(word[0] + ' ')
@@ -76,18 +102,17 @@ def analysis(histogram):
     print(f'sum: {sum}')
     mean = sum/len(histogram)
     print(f'mean: {mean}')
-    
+
 
 #What is the least/most frequent word(s)?
 #How many different words are used? unique_words(list)
 #What is the average (mean/median/mode) frequency of words in the text? 
-
-
 if __name__ == '__main__':
-    hist = histogram()
-    print(hist)
-    unique_words(hist)
-    print(frequency('hi',hist))
-    analysis(hist)
+    hist = hist_dictionary()
+    # print(hist)
+
+    unique_words_dict(hist)
+    #print(frequency('hi',hist))
+    #analysis(hist)
     #write(hist)
 
