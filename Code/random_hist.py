@@ -1,7 +1,7 @@
 import random
 from histogram import hist_dictionary, hist_list
 
-def rand(histogram):
+def sample_by_frequency(histogram):
     print(histogram)
     hist_values = list(histogram.values())
     sum = 0
@@ -26,5 +26,5 @@ def rand(histogram):
 
 if __name__ == '__main__':  
 
-    print(rand(hist_dictionary()))
+    print(sample_by_frequency(hist_dictionary()))
    
