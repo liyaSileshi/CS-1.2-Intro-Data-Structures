@@ -11,14 +11,12 @@ def hist_dictionary(words):
             dictionary[word] += 1
         else :
             dictionary[word] = 1
-        #print(dictionary)
     return dictionary
         
 def hist_list(words):
     index = 0
     count = 0
     big_list = []
-
     #all words with a zero value
     #when looping through split words, whenever the word exists,
     #increase value by 1
@@ -29,9 +27,8 @@ def hist_list(words):
     for word in words:
         for i in range(len(big_list)) :
             if big_list[i][index] == word :
-                # print(word)
                 big_list[i][1] += 1
-    print(big_list)
+    # print(big_list)
     return big_list
        
 def hist_tuple(words):
@@ -40,21 +37,21 @@ def hist_tuple(words):
     for word in words:
         word_freq.append(words.count(word))
         
-        #tuple
-        big_tuple = []
-        for word in words:
-            if (word,words.count(word)) not in big_tuple :
-                big_tuple.append((word, words.count(word)))
+    #tuple
+    big_tuple = []
+    for word in words:
+        if (word,words.count(word)) not in big_tuple :
+            big_tuple.append((word, words.count(word)))
         # print(big_tuple)
 
-        #tuple
-        #https://programminghistorian.org/en/lessons/counting-frequencies
-        tuple_histogram = list(zip(words, word_freq))
-        # print(tuple_histogram)
-        unique_tuple = []
-        for pairs in tuple_histogram :
-            if pairs not in unique_tuple :
-                unique_tuple.append(pairs)
+    #tuple
+    #https://programminghistorian.org/en/lessons/counting-frequencies
+    tuple_histogram = list(zip(words, word_freq))
+    # print(tuple_histogram)
+    unique_tuple = []
+    for pairs in tuple_histogram :
+        if pairs not in unique_tuple :
+            unique_tuple.append(pairs)
 
 def hist_counts_list(words):
     with open('alice.txt') as file :
@@ -77,7 +74,6 @@ def hist_counts_list(words):
         #print(counts_list)
         # print(counts_list[1][0])
 
-
 def unique_words_dict(list) :
     count = 0
     for _ in list :
@@ -85,10 +81,7 @@ def unique_words_dict(list) :
     print(count)
     return count
 
-
 def frequency_dict(word, histogram) :
-    # for i in histogram :
-        # if i == word:
     return histogram[word]
 
 def write(histogram) :
@@ -113,4 +106,3 @@ if __name__ == '__main__':
     print(frequency_dict('two',hist))
     #analysis(hist)
     #write(hist)
-    
