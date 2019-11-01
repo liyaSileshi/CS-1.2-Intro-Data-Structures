@@ -14,7 +14,7 @@ def sample_by_frequency(histogram):
         rand -= value
   
 def test(sample):
-    for _ in range(10000):
+    for _ in range(1000):
         sample_by_frequency(hist_dictionary(list_of_words()))
 
     return hist_dictionary(list_of_output)
