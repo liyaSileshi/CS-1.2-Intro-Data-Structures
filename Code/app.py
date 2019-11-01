@@ -1,5 +1,6 @@
 from flask import Flask
 from dictionary_words import rand_dict
+import os
 app = Flask(__name__)
 
 @app.route('/')
@@ -8,3 +9,7 @@ def index():
     #print(' '.join(dict_words)+'.')
     # return rand_dict(5);
     return (' '.join(dict_words)+'.')
+
+
+if __name__ == '__main__':
+  app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
