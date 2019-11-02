@@ -1,6 +1,7 @@
 from flask import Flask
 from dictionary_words import rand_dict
-from histogram import list_of_words
+from histogram import list_of_words, hist_dictionary
+from random_hist import sample_by_frequency
 import os
 app = Flask(__name__)
 
@@ -10,7 +11,10 @@ def index():
     #print(' '.join(dict_words)+'.')
     # return rand_dict(5);
     # return (' '.join(dict_words)+'.')
-    return (' '.join(list_of_words())+'.')
+    words_list = list_of_words()
+    histogram  = hist_dictionary(words_list)
+    # return (' '.join(list_of_words())+'.')
+    return(sample_by_frequency(histogram))
     
 
 
