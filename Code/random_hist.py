@@ -13,12 +13,16 @@ def sample_by_frequency(histogram):
             return key
         rand -= value
   
-def test(sample):
+def test():
     for _ in range(1000):
-        sample_by_frequency(hist_dictionary(list_of_words()))
+        words_list = list_of_words()
+        histogram = hist_dictionary(words_list)
+        sample_by_frequency(histogram)
 
     return hist_dictionary(list_of_output)
    
 if __name__ == '__main__':  
-    print(test(sample_by_frequency(hist_dictionary(list_of_words()))))
-    print(sample_by_frequency(hist_dictionary(list_of_words())))
+    words_list = list_of_words()
+    histogram  = hist_dictionary(words_list)
+    print(test())
+    print(sample_by_frequency(histogram))
