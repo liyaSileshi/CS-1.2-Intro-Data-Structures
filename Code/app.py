@@ -6,8 +6,8 @@ app = Flask(__name__)
 # app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 
 @app.route('/')
-"""home page for tweet bot"""
 def index():
+    """Desc: Home page for tweet bot"""
     words_list = list_of_words()
     histogram  = hist_dictionary(words_list)
     return render_template('index.html', rand_word = sample_by_frequency(histogram))
