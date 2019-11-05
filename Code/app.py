@@ -2,6 +2,14 @@ from flask import Flask, render_template
 from histogram import list_of_words, hist_dictionary
 from random_hist import sample_by_frequency
 import os
+
+import cleanup
+import tokenize
+import word_count
+import sample
+import sentence
+
+
 app = Flask(__name__)
 # app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 

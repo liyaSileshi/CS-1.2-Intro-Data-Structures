@@ -13,8 +13,7 @@ def hist_dictionary(file_name):
             dictionary[word] += 1
         else :
             dictionary[word] = 1
-    print(dictionary)
     return dictionary
-
+ 
 if __name__ == '__main__':  
     dictionary_histogram = hist_dictionary(sys.argv[1])

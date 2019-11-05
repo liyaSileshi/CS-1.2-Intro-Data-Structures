@@ -3,7 +3,7 @@ from cleanup import clean
 def tokens(file_name):
     """
     Input: file name of the source text
-
+    
     Output: list of tokens from a text
     """
     clean_text = clean(file_name)
