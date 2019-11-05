@@ -3,6 +3,9 @@ def reverse(word):
     """
     Input: takes in list of words
 
+    Return: If there is only one word,
+    it reverse and returns the string.
+    Else it reverse the place of the words
     """
     old_word = ""
     if len(word) == 1 :
@@ -28,4 +31,3 @@ if __name__ == '__main__':
         print(reverse(args))
     else:
         print('not enough words')
-    

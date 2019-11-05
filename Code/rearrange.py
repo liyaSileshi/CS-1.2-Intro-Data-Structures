@@ -2,6 +2,11 @@ import sys
 from random import choice
 
 def random_rearrange(words):
+    """
+    Input: list of words from the command line
+    
+    Return: randomly rearrange the words
+    """
     temp = words.copy()
     new_word = []
     while len(temp) > 0:
