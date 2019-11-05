@@ -41,7 +41,7 @@ class Dictogram(dict):
         each word's probability of being chosen by its observed frequency."""
         # TODO: Randomly choose a word based on its frequency in this histogram
         # tokens = sum(histogram.values())
-        rand = random.randrange(self.types)
+        rand = random.randrange(self.tokens)
         for key, value in self.items():
             if rand < value:
                 return key
