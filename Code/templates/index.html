@@ -4,12 +4,22 @@
 <head>
   <meta charset='utf-8'>
   <title>tweetbot-Liya</title>
-  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/styles.css')}}">
+  <style>
+    body{
+    
+        background-color:lightpink;
+    }
+    body > h1, h3{ 
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+  </style>
 </head>
 <body>
-
    <h1> Welcome to Liya's tweet bot  </h1>
    <h3>{{ rand_word }}</h3>
-
+   <a href="{{ url_for('index') }}"><button>Generate new word</button></a>
+    
 </body>
 </html>

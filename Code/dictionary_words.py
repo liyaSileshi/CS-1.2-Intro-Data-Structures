@@ -1,14 +1,18 @@
 import sys
 from random import choice
 
-#put it in a function
+
 
 #https://stackoverflow.com/questions/32470543/open-file-in-another-directory-python/32470564
 path = '/usr/share/dict/words'
+
+"""
+    Input: The number of words that user wants generated to form a sentence.
+    Return: random word from the given dictionary file
+"""
 def rand_dict(num):
     with open(path) as file:
         listr = list(file)
-        # listr = [w.replace('\n', '') for w in listr] 
         listr = [word.strip() for word in listr] 
         new = []
         if num <= len(listr):

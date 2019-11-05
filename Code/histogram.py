@@ -1,5 +1,6 @@
-def list_of_words():
-    with open('alice.txt') as file :
+import json
+def list_of_words(file_name):
+    with open(file_name, 'r') as file :
         words = file.read()
         split_words = words.split()
         return split_words
@@ -17,9 +18,9 @@ def hist_list(words):
     index = 0
     count = 0
     big_list = []
-    #all words with a zero value
-    #when looping through split words, whenever the word exists,
-    #increase value by 1
+    '''all words with a zero value
+    when looping through split words, whenever the word exists,
+    increase value by 1'''
     for word in words:
         if [word,count] not in big_list :
             big_list.append([word,count])
@@ -84,11 +85,17 @@ def unique_words_dict(list) :
 def frequency_dict(word, histogram) :
     return histogram[word]
 
-def write(histogram) :
+def write_list(histogram) :
     with open('write_hist.txt', 'w') as file :
         for word in histogram :
             file.write(word[0] + ' ')
             file.write(str(word[1])+ '\n')
+
+def write_dict(histogram) :
+    with open('write_dict.txt', 'w') as file :
+    #    file.write(json.dumps(histogram))
+        for k, v in histogram.items():
+            file.write(str(k) + ': '+ str(v) + '\n')
 
 def analysis(histogram): 
     sum = 0
@@ -100,9 +107,9 @@ def analysis(histogram):
 
 if __name__ == '__main__':
     hist = hist_dictionary(list_of_words())
-    hist_list(list_of_words())
+    # hist_list(list_of_words())
     # print(hist)
-    unique_words_dict(hist)
-    print(frequency_dict('two',hist))
+    # unique_words_dict(hist)
+    # print(frequency_dict('two',hist))
     #analysis(hist)
-    #write(hist)
+    write_dict(hist)
