@@ -9,6 +9,7 @@ def clean(file_name):
     with open(file_name, 'r') as file :
         words = file.read().lower()
         words = re.sub(r"[-()\"#/@;:<>{}=~|.?,]", "",words)
+        print(words)
         return words
 
 if __name__ == '__main__':  

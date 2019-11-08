@@ -12,3 +12,4 @@ def tokens(file_name):
 
 if __name__ == '__main__':  
     words_list = tokens(sys.argv[1])
+    
