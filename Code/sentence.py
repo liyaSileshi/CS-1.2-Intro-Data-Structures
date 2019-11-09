@@ -14,7 +14,6 @@ def sentence(histogram, count):
         if sample not in sentence_list:
             sentence_list.append(sample)
             count -= 1
-    # print(' '.join(sentence_list)+'.')
     return ' '.join(sentence_list) + '.'
 
 if __name__ == '__main__': 
