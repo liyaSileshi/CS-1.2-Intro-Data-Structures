@@ -26,19 +26,34 @@ def markov():
         # print(dict_hist)
 
     #generate sentence
+    sentence_list = []
+
     first_word = random.choice(list(nested_dict.keys()))
     print("first word: "+first_word)
+    sentence_list.append(first_word)
     # print(first_word.values())
     print("first word inside: ")
     print(nested_dict[first_word])
-    
+
     dict_inside = nested_dict[first_word]
     print('weighed sample: ' + dict_inside.sample())
 
-    next_word = random.choice(list(nested_dict[first_word]))
-    print('next_word: '+ next_word)
+    # next_word = random.choice(list(nested_dict[first_word]))
+    # print('next_word: '+ next_word)
     # print(dict_word)
     # print(nested_dict)
+    
+    count = 5
+    while count > 0:
+        # next_word = random.choice(list(nested_dict[first_word]))
+        # first_word = random.choice(list(nested_dict.keys()))
+        dict_inside = nested_dict[first_word]
+        next_word = dict_inside.sample()
+        sentence_list.append(next_word)
+        first_word = next_word
+        count -= 1
+    print(sentence_list)
+    print(' '.join(sentence_list)+'.')
 
 
 
