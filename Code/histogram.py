@@ -1,12 +1,12 @@
 def list_of_words(file_name):
-    """Returns the words in a text file in a list format"""
+    """Returns: the words in a text file in a list format"""
     with open(file_name, 'r') as file :
         words = file.read()
         split_words = words.split()
         return split_words
 
 def hist_dictionary(words):
-    """ Retruns the dictionary histogram
+    """ Retruns: the dictionary histogram
          representation of a given list of words"""
     dictionary = {}
     for word in words:
@@ -17,7 +17,7 @@ def hist_dictionary(words):
     return dictionary
         
 def hist_list(words):
-    """ Retruns the list of list histogram
+    """ Retruns: the list of list histogram
          representation of a given list of words"""
     index = 0
     count = 0
@@ -37,7 +37,7 @@ def hist_list(words):
        
 
 def hist_tuple(words):
-    """ Retruns the list of tuple histogram
+    """ Retruns: the list of tuple histogram
          representation of a given list of words"""
     #frequency of each word
     word_freq = []
@@ -79,27 +79,31 @@ def hist_counts_list(words):
 
 
 def unique_words_dict(list) :
-    """Returns the number of unique words (types) in a list"""
+    """Returns: the number of unique words (types) in a list"""
     count = 0
     for _ in list :
         count += 1
     return count
 
 def frequency_dict(word, histogram) :
+    """Returns: The number of time a word got mentioned in a histogram """
     return histogram[word]
 
 def write_list(histogram) :
+    """Writes the list of list histogram file to a .txt file """
     with open('write_hist.txt', 'w') as file :
         for word in histogram :
             file.write(word[0] + ' ')
             file.write(str(word[1])+ '\n')
 
 def write_dict(histogram) :
+    """Writes the dictionary histogram file to a .txt file """
     with open('write_dict.txt', 'w') as file :
         for k, v in histogram.items():
             file.write(str(k) + ': '+ str(v) + '\n')
 
 def analysis(histogram): 
+    """ Analysis of the histogram """
     sum = 0
     for word in histogram :
         sum += word[1]
