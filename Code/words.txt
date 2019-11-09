@@ -1,1 +1,4 @@
-one fish two fish red fish blue fish red fish red fish red fish red
+Notice that the template is an HTML page in which the variable parts have been replaced with program code.
+You could begin the design of such a page by writing a static prototype of the HTML page. You could then
+replace the table and other variable parts with program code that generates the content that varies from
+one occasion to the next.
