@@ -1,18 +1,18 @@
-from cleanup import clean
 import sys
-from tokenize import tokens
+from tokenize_word import tokens
 import dictogram
 import random
 
 def markov():
 
-    words = tokens('words.txt')
+    words = tokens('alice.txt')
     dict_word = {}
     word_list = []
     for i in range(len(words)-1):
         if words[i] not in dict_word.keys():
             word_list.append(words[i+1])
             dict_word[words[i]] = word_list
+        
         else:
             dict_word[words[i]].append(words[i+1])
         word_list = []
@@ -43,7 +43,7 @@ def markov():
     # print(dict_word)
     # print(nested_dict)
     
-    count = 5
+    count = 10
     while count > 0:
         # next_word = random.choice(list(nested_dict[first_word]))
         # first_word = random.choice(list(nested_dict.keys()))
@@ -53,7 +53,7 @@ def markov():
         first_word = next_word
         count -= 1
     print(sentence_list)
-    print(' '.join(sentence_list)+'.')
+    return ' '.join(sentence_list)+'.'
 
 
 
