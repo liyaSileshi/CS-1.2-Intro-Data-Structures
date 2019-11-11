@@ -3,11 +3,19 @@ from tokenize_word import tokens
 import dictogram
 import random
 
-def markov():
+def markov(list_of_words):
+    """
+    Input: A list of tokens
 
-    words = tokens('words.txt')
+    Return: A sentence made by the list
+    provided using first order
+    Markov chain.
+    """
     dict_word = {}
     word_list = []
+
+    #for each key, create a list holiding
+    # values that comes after it on the original list
     for i in range(len(words)-1):
         if words[i] not in dict_word.keys():
             word_list.append(words[i+1])
@@ -18,29 +26,21 @@ def markov():
         word_list = []
     # print(dict_word)
 
+    #make a nested dictionary using dictogram class
     nested_dict = {}
-    #make a nested dictionary using the dictogram
     for key, value in dict_word.items():
         dict_hist = dictogram.Dictogram(dict_word.get(key))
         nested_dict[key] = dict_hist
     #print(nested_dict)
 
-
     #generate sentence
     sentence_list = []
-
     first_word = random.choice(list(nested_dict.keys()))
     print("first word: "+first_word)
     sentence_list.append(first_word)
     print("first word inside: " + str(nested_dict[first_word]))
-
     dict_inside = nested_dict[first_word]
     print('weighed sample: ' + dict_inside.sample())
-
-    # next_word = random.choice(list(nested_dict[first_word]))
-    # print('next_word: '+ next_word)
-    # print(dict_word)
-    # print(nested_dict)
     
     count = 10
     while count > 0:
@@ -55,8 +55,6 @@ def markov():
     print((' '.join(sentence_list)+'.').capitalize())
     return (' '.join(sentence_list)+'.').capitalize()
 
-
-
-
 if __name__ == '__main__':
-    markov()
+    words = tokens('words.txt')
+    markov(words)
