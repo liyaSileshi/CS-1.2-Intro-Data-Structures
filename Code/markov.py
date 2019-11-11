@@ -5,7 +5,7 @@ import random
 
 def markov():
 
-    words = tokens('alice.txt')
+    words = tokens('words.txt')
     dict_word = {}
     word_list = []
     for i in range(len(words)-1):
@@ -16,14 +16,15 @@ def markov():
         else:
             dict_word[words[i]].append(words[i+1])
         word_list = []
-
+    # print(dict_word)
 
     nested_dict = {}
     #make a nested dictionary using the dictogram
     for key, value in dict_word.items():
         dict_hist = dictogram.Dictogram(dict_word.get(key))
         nested_dict[key] = dict_hist
-        # print(dict_hist)
+    #print(nested_dict)
+
 
     #generate sentence
     sentence_list = []
@@ -31,9 +32,7 @@ def markov():
     first_word = random.choice(list(nested_dict.keys()))
     print("first word: "+first_word)
     sentence_list.append(first_word)
-    # print(first_word.values())
-    print("first word inside: ")
-    print(nested_dict[first_word])
+    print("first word inside: " + str(nested_dict[first_word]))
 
     dict_inside = nested_dict[first_word]
     print('weighed sample: ' + dict_inside.sample())
@@ -45,18 +44,19 @@ def markov():
     
     count = 10
     while count > 0:
-        # next_word = random.choice(list(nested_dict[first_word]))
-        # first_word = random.choice(list(nested_dict.keys()))
         dict_inside = nested_dict[first_word]
         next_word = dict_inside.sample()
         sentence_list.append(next_word)
         first_word = next_word
         count -= 1
-    print(sentence_list)
-    return ' '.join(sentence_list)+'.'
+
+    print('Sentence list: ' + str(sentence_list))
+    print('Markov Sentence: ' + ' '.join(sentence_list)+'.')
+    print((' '.join(sentence_list)+'.').capitalize())
+    return (' '.join(sentence_list)+'.').capitalize()
 
 
 
 
-
-markov()
+if __name__ == '__main__':
+    markov()
