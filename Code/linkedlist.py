@@ -99,11 +99,13 @@ class LinkedList(object):
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
-        # curr = self.head
-        # while curr.next != None:
-        #     if quality(curr.data) is True:
-        #         return curr.data
-        pass
+        curr = self.head
+        while curr.next != 0:
+            curr = curr.next
+            if quality(curr.data) is True:
+                return curr.data
+            
+        # pass
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
         TODO: Best case running time: O(???) Why and under what conditions?
@@ -112,6 +114,10 @@ class LinkedList(object):
         # TODO: Update previous node to skip around node with matching data
         # TODO: Otherwise raise error to tell user that delete has failed
         # Hint: raise ValueError('Item not found: {}'.format(item))
+        
+        if self.is_empty():    
+            raise ValueError('Item not found: {}'.format(item))
+           
         curr = self.head
         if self.size == 1:
             self.head = None
@@ -145,6 +151,7 @@ class LinkedList(object):
                     return
 
         raise ValueError('Item not found: {}'.format(item))
+        
     
 def test_linked_list():
     ll = LinkedList()
