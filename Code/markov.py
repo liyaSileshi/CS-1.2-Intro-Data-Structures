@@ -31,7 +31,7 @@ def markov(list_of_words):
     for key, value in dict_word.items():
         dict_hist = dictogram.Dictogram(dict_word.get(key))
         nested_dict[key] = dict_hist
-    #print(nested_dict)
+    print(nested_dict)
 
     #generate sentence
     sentence_list = []
