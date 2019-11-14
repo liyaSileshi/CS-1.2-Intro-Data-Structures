@@ -100,12 +100,11 @@ class LinkedList(object):
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
         curr = self.head
-        while curr.next != 0:
-            curr = curr.next
+        while curr:
             if quality(curr.data) is True:
                 return curr.data
-            
-        # pass
+            curr = curr.next
+
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
         TODO: Best case running time: O(???) Why and under what conditions?
