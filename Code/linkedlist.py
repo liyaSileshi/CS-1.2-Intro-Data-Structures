@@ -99,9 +99,11 @@ class LinkedList(object):
         TODO: Worst case running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all nodes to find item where quality(item) is True
         # TODO: Check if node's data satisfies given quality function
-        if quality(node.data) is True:
-            return node.data
-
+        # curr = self.head
+        # while curr.next != None:
+        #     if quality(curr.data) is True:
+        #         return curr.data
+        pass
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
         TODO: Best case running time: O(???) Why and under what conditions?
@@ -115,10 +117,12 @@ class LinkedList(object):
             self.head = None
             self.tail = None
             self.size -= 1
+            return
 
         elif curr.data == item:
             self.head = curr.next
             self.size -= 1
+            return
 
         elif self.tail.data == item:
             while curr.next != None:
@@ -127,6 +131,7 @@ class LinkedList(object):
             self.tail = prev
             self.tail.next = None
             self.size -= 1
+            return
 
         else:
             prev = None
@@ -139,7 +144,7 @@ class LinkedList(object):
                     self.size -= 1
                     return
 
-            raise ValueError('Item not found: {}'.format(item))
+        raise ValueError('Item not found: {}'.format(item))
     
 def test_linked_list():
     ll = LinkedList()
@@ -156,7 +161,7 @@ def test_linked_list():
     print('length: {}'.format(ll.length()))
 
     # Enable this after implementing delete method
-    delete_implemented = False
+    delete_implemented = True
     if delete_implemented:
         print('\nTesting delete:')
         for item in ['B', 'C', 'A']:
@@ -167,7 +172,6 @@ def test_linked_list():
         print('head: {}'.format(ll.head))
         print('tail: {}'.format(ll.tail))
         print('length: {}'.format(ll.length()))
-
 
 if __name__ == '__main__':
     test_linked_list()
