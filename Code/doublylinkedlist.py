@@ -7,6 +7,7 @@ class Node(object):
         """Initialize this node with the given data."""
         self.data = data
         self.next = None
+        self.prev = None
 
     def __repr__(self):
         """Return a string representation of this node."""
@@ -27,7 +28,7 @@ class llIterator:
             return item
         raise StopIteration
 
-class LinkedList(object):
+class DoublyLinkedList(object):
 
     def __init__(self, items=None):
         """Initialize this linked list and append the given items, if any."""
@@ -79,7 +80,10 @@ class LinkedList(object):
     def append(self, item):
         """Insert the given item at the tail of this linked list."""
         
-        """Running time: O(1) since we are assigning variables in both cases"""
+        """Running time: If there was no item in the list before hand, it is O(n) 
+        because you are assining variable to head.
+        Else, it is O(n) because you have to go through an entire
+         linked list to check where the pointer becomes null to add """
         new_node = Node(item)
         if self.head is None:
             self.head = new_node
@@ -177,7 +181,7 @@ class LinkedList(object):
             curr = curr.next
 
 def test_linked_list():
-    ll = LinkedList()
+    ll = DoublyLinkedList()
     print('list: {}'.format(ll))
 
     print('\nTesting append:')
@@ -205,19 +209,19 @@ def test_linked_list():
 
 if __name__ == '__main__':
     # test_linked_list()
-    liya = LinkedList()
+    liya = DoublyLinkedList()
     liya.append('A') 
     liya.append('B')
     liya.append('C')
-    print(liya.items())
+    # print(liya.items())
     # print(liya.find(lambda item : item == 'A'))
     # print(liya.replace('B', 'D'))
     # print(liya.replace('A', 'D'))
     # print(liya.replace('C', 'D'))
 
     # print(liya.items())
-    # print(liya.__iter__())
-    # iter(liya)
+    print(liya.__iter__())
+    iter(liya)
     # for item in liya:
     #     print(item)
-    # print(liya)
+    print(liya)
