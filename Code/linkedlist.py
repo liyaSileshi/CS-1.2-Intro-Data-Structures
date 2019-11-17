@@ -110,7 +110,7 @@ class LinkedList(object):
 
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
-        
+
          Best case running time: O(1) If the list is empty or if there is only
               one item in the list
          Worst case running time: O(n) If it is the last item in the list,
@@ -152,7 +152,14 @@ class LinkedList(object):
                     return
 
         raise ValueError('Item not found: {}'.format(item))
-        
+
+    def replace(self, old_item, new_item):
+        curr = self.head
+        while curr:
+            if curr.data == old_item:
+                curr.data = new_item
+                return curr.data
+            curr = curr.next
     
 def test_linked_list():
     ll = LinkedList()
@@ -182,4 +189,15 @@ def test_linked_list():
         print('length: {}'.format(ll.length()))
 
 if __name__ == '__main__':
-    test_linked_list()
+    # test_linked_list()
+    liya = LinkedList()
+    liya.append('A') 
+    liya.append('B')
+    liya.append('C')
+    print(liya.items())
+    # print(liya.find(lambda item : item == 'A'))
+    print(liya.replace('B', 'D'))
+    print(liya.replace('A', 'D'))
+    print(liya.replace('C', 'D'))
+
+    print(liya.items())
