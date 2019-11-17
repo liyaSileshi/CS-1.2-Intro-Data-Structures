@@ -1,5 +1,7 @@
 <!-- templates/index.html -->
 {% extends 'base.html' %} 
 {% block content %}
-<a href="{{ url_for('index') }}"><button class='update'>Generate new word</button></a>
+<div class='button-container'>
+    <a href="{{ url_for('index') }}"><button class='update'>Generate new word</button></a>
+</div>
 {% endblock %}

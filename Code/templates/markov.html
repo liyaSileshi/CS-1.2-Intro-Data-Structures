@@ -1,6 +1,9 @@
 {% extends 'base.html' %} 
 {% block content %}
-<a href="{{ url_for('markov_sentence') }}"><button>Generate new word</button></a>
+<div class= 'button-container'>
+    <a href="{{ url_for('markov_sentence') }}"><button class='update'>Generate new word</button></a>
+</div>
+
 {% endblock %}
 
     

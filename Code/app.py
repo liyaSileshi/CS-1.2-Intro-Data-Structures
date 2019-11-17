@@ -27,8 +27,8 @@ def index():
 @app.route('/markov')
 def markov_sentence():
   """ Displays a markov chain sentence based on weighed sample for each word """
-  words = tokens('words.txt')
-  print(words)
+  words = tokens('alice.txt')
+  # print(words)
   sentence = markov(words)
   return render_template('markov.html', sentence = sentence)
 
