@@ -87,6 +87,7 @@ class DoublyLinkedList(object):
         new_node = Node(item)
         if self.head is None:
             self.head  = new_node
+            self.tail = new_node
         
         else:
             self.tail.next = new_node
@@ -108,7 +109,9 @@ class DoublyLinkedList(object):
             self.tail = new_node
             
         else:
+
             new_node.next = self.head
+            self.head.prev = new_node
             self.head = new_node
         self.size += 1
 
@@ -222,11 +225,12 @@ if __name__ == '__main__':
     # print(liya.replace('B', 'D'))
     # print(liya.replace('A', 'D'))
     # print(liya.replace('C', 'D'))
-
+    
     print(liya.items())
     print(liya.size)
     # print(liya.__iter__())
     # iter(liya)
     # for item in liya:
     #     print(item)
+    liya.prepend('D')
     print(liya)
