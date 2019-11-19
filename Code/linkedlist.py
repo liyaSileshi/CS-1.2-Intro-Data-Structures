@@ -129,10 +129,10 @@ class LinkedList(object):
              traverse through the whole list."""
 
         if self.is_empty():    
-            raise ValueError('Item not found: {}'.format(item))
+            raise ValueError('List is empty: {}'.format(item))
            
         curr = self.head
-        if self.size == 1:
+        if self.size == 1 and curr.data == item:
             self.head = None
             self.tail = None
             self.size -= 1

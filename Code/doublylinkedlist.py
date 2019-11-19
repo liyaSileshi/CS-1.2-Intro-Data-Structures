@@ -138,10 +138,10 @@ class DoublyLinkedList(object):
              traverse through the whole list."""
 
         if self.is_empty():    
-            raise ValueError('Item not found: {}'.format(item))
+            raise ValueError('List is empty: {}'.format(item))
            
         curr = self.head
-        if self.size == 1:
+        if self.size == 1 and curr.data == item:
             self.head = None
             self.tail = None
             self.size -= 1
@@ -149,17 +149,29 @@ class DoublyLinkedList(object):
 
         elif curr.data == item:
             self.head = curr.next
+            curr = curr.next
+            curr.prev = self.head
             self.size -= 1
             return
 
         elif self.tail.data == item:
-            while curr.next != None:
-                prev = curr
-                curr = curr.next
-            self.tail = prev
-            self.tail.next = None
+            curr = self.tail.prev
+            # curr = self.tail
+            # curr.next = self.tail
+            self.tail.prev = None
+            self.tail = curr
             self.size -= 1
             return
+
+
+
+            # while curr.next != None:
+            #     prev = curr
+            #     curr = curr.next
+            # self.tail = prev
+            # self.tail.next = None
+            # self.size -= 1
+            # return
 
         else:
             prev = None
@@ -218,19 +230,20 @@ if __name__ == '__main__':
     liya.append('A') 
     print(liya.items())
     liya.append('B')
-    print(liya.items())
-    liya.append('C')
     # print(liya.items())
+    liya.append('C')
+    print(liya.items())
     # print(liya.find(lambda item : item == 'A'))
     # print(liya.replace('B', 'D'))
     # print(liya.replace('A', 'D'))
     # print(liya.replace('C', 'D'))
     
-    print(liya.items())
+    # print(liya.items())
     print(liya.size)
     # print(liya.__iter__())
     # iter(liya)
     # for item in liya:
     #     print(item)
-    liya.prepend('D')
+    liya.delete('C')
+    print(liya.size)
     print(liya)
