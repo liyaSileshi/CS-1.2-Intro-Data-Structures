@@ -2,8 +2,8 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<div class='button-container'>
-    <a href="{{ url_for('index') }}"><button class='update'>Generate new word</button></a>
-</div>
+<form class='button-container' id="form" method="GET">
+    <a href="{{ url_for('index') }}"><button type='button' class='update'>Generate new word</button></a>
+</form>
 
 {% endblock %}

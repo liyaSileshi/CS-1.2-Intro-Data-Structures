@@ -19,9 +19,9 @@ def index():
     histogram = word_count.hist_dictionary('words.txt')
     sent = sentence.sentence(histogram, 5)
 
-    if request.method == 'POST':
-      return jsonify({'sent' : sent})
-    return render_template('index.html', sentence = sent)
+    if request.method == 'GET':
+      get_sent = jsonify({'sent' : sent})
+      return render_template('index.html', sentence = get_sent)
     
 
 @app.route('/markov')
