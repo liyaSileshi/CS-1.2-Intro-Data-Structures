@@ -79,7 +79,7 @@ class LinkedList(object):
     def append(self, item):
         """Insert the given item at the tail of this linked list."""
         
-        """Running time: O(1) since we are assigning variables in both cases"""
+        """Running time: O(n) since n is the length of the list"""
         new_node = Node(item)
         if self.head is None:
             self.head = new_node

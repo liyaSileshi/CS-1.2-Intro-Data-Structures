@@ -81,7 +81,7 @@ class DoublyLinkedList(object):
         """Insert the given item at the tail of this linked list."""
         
         """Running time: If there was no item in the list before hand, it is O(n) 
-        because you are assining variable to head.
+        because you are assining variable to head, but n is the length of the list.
         Else, it is O(n) because you have to go through an entire
          linked list to check where the pointer becomes null to add """
         new_node = Node(item)
@@ -155,32 +155,17 @@ class DoublyLinkedList(object):
             return
 
         elif self.tail.data == item:
-            curr = self.tail.prev
-            # curr = self.tail
-            # curr.next = self.tail
-            self.tail.prev = None
-            self.tail = curr
+            self.tail = self.tail.prev
+            self.tail.next = None
             self.size -= 1
             return
 
-
-
-            # while curr.next != None:
-            #     prev = curr
-            #     curr = curr.next
-            # self.tail = prev
-            # self.tail.next = None
-            # self.size -= 1
-            # return
-
         else:
-            prev = None
             while curr.next != None:
-                prev = curr
                 curr = curr.next
                 if curr.data == item:
-                    prev.next = curr.next
-                    curr.next = None
+                    curr.prev.next = curr.next
+                    curr.next.prev = curr.prev
                     self.size -= 1
                     return
 
@@ -228,13 +213,16 @@ if __name__ == '__main__':
     # test_linked_list()
     liya = DoublyLinkedList()
     liya.append('A') 
-    print(liya.items())
-    liya.append('B')
     # print(liya.items())
+    liya.append('B')
     liya.append('C')
+    # print(liya.items())
+    # liya.append('D')
+    # liya.append('E')
+    # liya.append('E')
     print(liya.items())
     # print(liya.find(lambda item : item == 'A'))
-    # print(liya.replace('B', 'D'))
+    print(liya.replace('B', 'D'))
     # print(liya.replace('A', 'D'))
     # print(liya.replace('C', 'D'))
     
@@ -244,6 +232,7 @@ if __name__ == '__main__':
     # iter(liya)
     # for item in liya:
     #     print(item)
-    liya.delete('C')
+    # liya.delete('A')
     print(liya.size)
     print(liya)
+    
