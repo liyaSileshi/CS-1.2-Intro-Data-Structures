@@ -26,7 +26,7 @@ class HashTable(object):
 
     def keys(self):
         """Return a list of all keys in this hash table.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        TODO: Running time: O(n2) Why and under what conditions?"""
         # Collect all keys in each bucket
         all_keys = []
         for bucket in self.buckets:
@@ -39,6 +39,11 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all buckets
         # TODO: Collect all values in each bucket
+        all_values = []
+        for bucket in self.buckets:
+            for key,value in bucket.items():
+                all_values.append(value)
+        return all_values
 
     def items(self):
         """Return a list of all items (key-value pairs) in this hash table.
@@ -54,13 +59,24 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Loop through all buckets
         # TODO: Count number of key-value entries in each bucket
+        count = 0
+        for bucket in self.buckets:
+            for key,value in bucket.items():
+                count += 1
+        return count
 
     def contains(self, key):
         """Return True if this hash table contains the given key, or False.
         TODO: Running time: O(???) Why and under what conditions?"""
         # TODO: Find bucket where given key belongs
         # TODO: Check if key-value entry exists in bucket
-
+        index = self._bucket_index(key)
+        ll = self.buckets[index]
+        for buck_key, buck_value in ll.items():
+            if key is buck_key:
+                return True
+        return False
+                
     def get(self, key):
         """Return the value associated with the given key, or raise KeyError.
         TODO: Running time: O(???) Why and under what conditions?"""
@@ -69,7 +85,13 @@ class HashTable(object):
         # TODO: If found, return value associated with given key
         # TODO: Otherwise, raise error to tell user get failed
         # Hint: raise KeyError('Key not found: {}'.format(key))
-
+        index = self._bucket_index(key)
+        ll = self.buckets[index]
+        for buck_key, buck_value in ll.items():
+            if key is buck_key:
+                return buck_value
+        raise KeyError('Key not found: {}'.format(key))
+        # return False
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         TODO: Running time: O(???) Why and under what conditions?"""
@@ -77,6 +99,13 @@ class HashTable(object):
         # TODO: Check if key-value entry exists in bucket
         # TODO: If found, update value associated with given key
         # TODO: Otherwise, insert given key-value entry into bucket
+        index = self._bucket_index(key)
+        ll = self.buckets[index]
+        for buck_key, buck_value in ll.items():
+            if key is buck_key:
+                ll.replace((buck_key,buck_value), (buck_key, value))
+                return
+        ll.append((key, value))
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
