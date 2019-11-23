@@ -69,6 +69,7 @@ class LinkedList(object):
 
     def is_empty(self):
         """Return a boolean indicating whether this linked list is empty."""
+        """Running time: O(1) because it is returning a variable, constant time"""
         return self.head is None
 
     def length(self):
@@ -168,6 +169,11 @@ class LinkedList(object):
     def replace(self, old_item, new_item):
         """
         Replaces an old item with a new one without creating a new node
+
+        Running time: Best case: O(1), if the data to be replaced is the 
+                    first item.
+                    Worst case: O(n), if the data to be replaced is the
+                    last item.
         """
         curr = self.head
         while curr:
@@ -204,12 +210,12 @@ def test_linked_list():
         print('length: {}'.format(ll.length()))
 
 if __name__ == '__main__':
-    # test_linked_list()
-    liya = LinkedList()
-    liya.append('A') 
-    liya.append('B')
-    liya.append('C')
-    print(liya.items())
+    test_linked_list()
+    # liya = LinkedList()
+    # liya.append('A') 
+    # liya.append('B')
+    # liya.append('C')
+    # print(liya.items())
     # print(liya.find(lambda item : item == 'A'))
     # print(liya.replace('B', 'D'))
     # print(liya.replace('A', 'D'))

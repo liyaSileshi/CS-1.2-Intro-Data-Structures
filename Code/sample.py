@@ -44,5 +44,5 @@ if __name__ == '__main__':
 
     sample = sample_by_frequency(dictionary_histogram)
 
-    test()
+    # test()
     

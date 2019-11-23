@@ -103,6 +103,16 @@ class HashTable(object):
                 return
         raise KeyError('Key not found: {}'.format(key))
 
+    def __setitem__(self, key, value):
+        self.set(key, value)
+    
+    def __getitem__(self, key):
+        return self.get(key)
+
+    def __contains__(self, key):
+        return self.contains(key)
+    
+
 def test_hash_table():
     ht = HashTable()
     print('hash table: {}'.format(ht))
@@ -136,3 +146,10 @@ def test_hash_table():
 
 if __name__ == '__main__':
     test_hash_table()
+    # ht = HashTable()
+    # ht['liya'] = 'myself'
+    # print(ht)
+    # print(ht['liya'])
+
+    # if "liya" in ht:
+    #     print("Exist!")
