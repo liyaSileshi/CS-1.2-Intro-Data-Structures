@@ -10,6 +10,23 @@ class HashTable(object):
         # Create a new list (used as fixed-size array) of empty linked lists
         self.buckets = [LinkedList() for _ in range(init_size)]
         self.size = 0
+
+    def __iter__(self):
+        """ Returns the iteator object """
+        return self.items()
+    
+    def __next__(self):
+        #  while self.items() != None:
+        #     item = self.curr.data
+        #     self.curr = self.curr.next
+        #     return item
+        # raise StopIteration
+        # pass
+        # curr = self.items()[0]
+        # for i in self.items():
+        #     return i
+        # raise StopIteration
+        pass
     def __str__(self):
         """Return a formatted string representation of this hash table."""
         items = ['{!r}: {!r}'.format(key, val) for key, val in self.items()]
@@ -53,6 +70,7 @@ class HashTable(object):
         for bucket in self.buckets:
             all_items.extend(bucket.items())
         return all_items
+        print(all_items)
 
     def length(self):
         """Return the number of key-value entries by traversing its buckets.
@@ -145,11 +163,18 @@ def test_hash_table():
 
 
 if __name__ == '__main__':
-    test_hash_table()
-    # ht = HashTable()
-    # ht['liya'] = 'myself'
+    # test_hash_table()
+    ht = HashTable()
+
+    ht['liya'] = 'myself'
+    ht['josi'] = 'bro'
+    ht['boni'] = 'sis'
+    print(ht.items())
     # print(ht)
     # print(ht['liya'])
-
+    for i in ht.items():
+        print(i)
+    # print(iter(ht.items()))
+    # print(next(ht.items()))
     # if "liya" in ht:
     #     print("Exist!")
