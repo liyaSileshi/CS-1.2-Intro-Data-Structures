@@ -92,6 +92,7 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         index = self._bucket_index(key)
         ll = self.buckets[index]
+        # use find method
         for buck_key, buck_value in ll.items():
             if key is buck_key:
                 return buck_value
@@ -129,6 +130,9 @@ class HashTable(object):
 
     def __contains__(self, key):
         return self.contains(key)
+    
+    def __len__(self):
+        return self.size
     
 
 def test_hash_table():
@@ -172,8 +176,9 @@ if __name__ == '__main__':
     print(ht.items())
     # print(ht)
     # print(ht['liya'])
-    for i in ht.items():
-        print(i)
+    # for i in ht.items():
+    #     print(i)
+    # print(len(ht))
     # print(iter(ht.items()))
     # print(next(ht.items()))
     # if "liya" in ht:
