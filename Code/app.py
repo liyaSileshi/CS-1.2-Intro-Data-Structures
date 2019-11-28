@@ -18,11 +18,17 @@ def index():
     """Displays random sentence based on weighed sample"""
     histogram = word_count.hist_dictionary('words.txt')
     sent = sentence.sentence(histogram, 5)
+    return render_template('index.html')
 
-    if request.method == 'GET':
-      get_sent = jsonify({'sent' : sent})
-      return render_template('index.html', sentence = get_sent)
-    
+@app.route("/data")
+def data():
+  histogram = word_count.hist_dictionary('words.txt')
+  sent = sentence.sentence(histogram, 5)
+  # define some data
+  s = {
+    'sentence' : sent
+  }
+  return jsonify(s)  
 
 @app.route('/markov')
 def markov_sentence():

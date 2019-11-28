@@ -8,15 +8,12 @@
 
 <body>
    <h1> Welcome to Liya's tweet bot  </h1>
-   <h3>{{ sentence }}</h3>
+   <h3 id='sentence'> </h3>
+
    {% block content %} {% endblock%}
     <img src = '/static/faults.png' alt = 'faults_in_our_stars' >
     
 <!-- JS here -->
-
-
-
-<script type=text/javascript src="{{url_for('static', filename='jquery.js') }}"></script>
 <script type= 'text/javascript' src="{{url_for('static', filename='script.js') }}"></script> 
 </body>
 </html>
