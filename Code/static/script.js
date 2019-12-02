@@ -8,12 +8,13 @@ rand.addEventListener('submit', function(e){
     const h3 = document.querySelector('h3')
     console.log(h3)
     // Use the JSON data to populate these elements
-    h3.innerHTML = json.sentence 
+    h3.innerHTML = json.sentence + json.num
     console.log(json.sentence)
   }).catch(function(err) {
     console.log(err.message)
   })
 })
+
 
 
 

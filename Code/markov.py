@@ -36,11 +36,11 @@ def markov(list_of_words):
     #generate sentence
     sentence_list = []
     first_word = random.choice(list(nested_dict.keys()))
-    print("first word: "+first_word)
+    # print("first word: "+first_word)
     sentence_list.append(first_word)
-    print("first word inside: " + str(nested_dict[first_word]))
+    # print("first word inside: " + str(nested_dict[first_word]))
     dict_inside = nested_dict[first_word]
-    print('weighed sample: ' + dict_inside.sample())
+    # print('weighed sample: ' + dict_inside.sample())
     
     count = 10
     while count > 0:
@@ -50,9 +50,9 @@ def markov(list_of_words):
         first_word = next_word
         count -= 1
 
-    print('Sentence list: ' + str(sentence_list))
-    print('Markov Sentence: ' + ' '.join(sentence_list)+'.')
-    print((' '.join(sentence_list)+'.').capitalize())
+    # print('Sentence list: ' + str(sentence_list))
+    # print('Markov Sentence: ' + ' '.join(sentence_list)+'.')
+    # print((' '.join(sentence_list)+'.').capitalize())
     return (' '.join(sentence_list)+'.').capitalize()
 
 if __name__ == '__main__':

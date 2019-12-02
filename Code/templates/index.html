@@ -3,6 +3,9 @@
 {% block content %}
 
 <form class='button-container' id="form" method="GET">
+    <label> Enter how many words you want
+        <input class='num' type= 'number'>
+    </label>
     <a href="{{ url_for('index') }}"><button type='submit' class='update' id='random_sentence'>Generate new word</button></a>
 </form>
 

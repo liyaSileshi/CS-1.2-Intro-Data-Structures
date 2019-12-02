@@ -7,11 +7,20 @@
 </head>
 
 <body>
-   <h1> Welcome to Liya's tweet bot  </h1>
+  <header>
+    <nav>
+      <ul>
+        <li><a href='#'>Home</a></li>
+        <li><a href='#about'>About</a></li>
+      </ul>
+    </nav>
+  </header>
+
+   <h1> John Green's books  </h1>
    <h3 id='sentence'> </h3>
 
    {% block content %} {% endblock%}
-    <img src = '/static/faults.png' alt = 'faults_in_our_stars' >
+    <!-- <img src = '/static/faults.png' alt = 'faults_in_our_stars' > -->
     
 <!-- JS here -->
 <script type= 'text/javascript' src="{{url_for('static', filename='script.js') }}"></script> 

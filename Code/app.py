@@ -22,10 +22,10 @@ def data():
   sentence = markov(words)
   # histogram = word_count.hist_dictionary('words.txt')
   # sent = sentence.sentence(histogram, 5)
-
   # define some data
   s = {
-    'sentence' : sentence
+    'sentence' : sentence,
+    'num': 5
   }
   return jsonify(s)  
 
