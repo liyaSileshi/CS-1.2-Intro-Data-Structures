@@ -2,7 +2,6 @@
 
 from linkedlist import LinkedList
 
-
 class HashTable(object):
 
     def __init__(self, init_size=8):
@@ -141,12 +140,18 @@ class HashTable(object):
         TODO: Running time: O(???) Why and under what conditions?"""
         index = self._bucket_index(key)
         ll = self.buckets[index]
-        for buck_key, buck_value in ll.items():
-            if key is buck_key:
-                ll.delete((buck_key,buck_value))
-                self.size -= 1
-                return
-        raise KeyError('Key not found: {}'.format(key))
+        node_data = ll.find(lambda item: item[0] == key)
+        if node_data == None:
+            raise KeyError('Key not found: {}'.format(key))
+        else:
+            ll.delete(node_data)
+            self.size -= 1
+        # for buck_key, buck_value in ll.items():
+        #     if key is buck_key:
+        #         ll.delete((buck_key,buck_value))
+        #         self.size -= 1
+        #         return
+        # raise KeyError('Key not found: {}'.format(key))
 
     def __setitem__(self, key, value):
         self.set(key, value)
