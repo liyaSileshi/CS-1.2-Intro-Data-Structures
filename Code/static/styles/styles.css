@@ -3,7 +3,7 @@ body{
     /* background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%,
                  rgba(224,6,124,1) 76%, rgba(0,212,255,1) 100%); */
-    background-color: black;
+    background-color: #021e37;
 }
 
 body > h1, h3{ 
@@ -48,16 +48,30 @@ img{
     color: white;
 }
 
+.num{
+    height: 2rem;
+    font-size: 1em;
+}
+
 #form{
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 ul{
     display: flex;
-    
-
+    flex-direction: row;
+    list-style: none;
+    margin: 0;
+    justify-content: flex;
+    padding: 1em;
+    background-color: black;
 }
+
 ul a{
     color: white;
+    padding: 1em;
+    text-decoration: none;
+    font-size: 1.5em;
 }
