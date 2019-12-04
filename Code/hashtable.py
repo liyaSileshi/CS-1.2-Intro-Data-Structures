@@ -108,7 +108,6 @@ class HashTable(object):
             raise KeyError('Key not found: {}'.format(key))
         else:
             return node_data[1]
-
         # for buck_key, buck_value in ll.items():
         #     if key is buck_key:
         #         return buck_value
@@ -137,7 +136,10 @@ class HashTable(object):
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
-        TODO: Running time: O(???) Why and under what conditions?"""
+        
+        Running time: O(1) if there is only one item in the bucket or if the
+        key is found on the first node in the bucket. O(l) if the key is found
+        in the last node of the linked list bucket, or if it's not found at all. """
         index = self._bucket_index(key)
         ll = self.buckets[index]
         node_data = ll.find(lambda item: item[0] == key)
@@ -146,12 +148,6 @@ class HashTable(object):
         else:
             ll.delete(node_data)
             self.size -= 1
-        # for buck_key, buck_value in ll.items():
-        #     if key is buck_key:
-        #         ll.delete((buck_key,buck_value))
-        #         self.size -= 1
-        #         return
-        # raise KeyError('Key not found: {}'.format(key))
 
     def __setitem__(self, key, value):
         self.set(key, value)
@@ -165,7 +161,6 @@ class HashTable(object):
     def __len__(self):
         return self.size
     
-
 def test_hash_table():
     ht = HashTable()
     print('hash table: {}'.format(ht))
