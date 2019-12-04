@@ -7,6 +7,7 @@ rand.addEventListener('submit', function(e){
   }).then(function(json) {
     const h3 = document.querySelector('h3')
     console.log(h3)
+    mySlides.nextSlide()
     // Use the JSON data to populate these elements
     h3.innerHTML = json.sentence + json.num
     console.log(json.sentence)
@@ -14,6 +15,13 @@ rand.addEventListener('submit', function(e){
     console.log(err.message)
   })
 })
+
+
+
+const slideshow = document.querySelector('.ms-slide-show')
+const mySlides = makeSlideshow(slideshow)
+
+
 
 
 

@@ -2,6 +2,16 @@
 {% extends 'base.html' %} 
 {% block content %}
 
+<div id='slides' class='slide-show ms-slide-show' data-delay='0' data-transition='2000'>
+    <div class='slides-inner'>
+      <img src='static/images/bee-1200-400.jpg' width='1200' height='400' alt='bee'>
+      <img src='static/images/beetle-1200-400.jpg' width='1200' height='400' alt='beetle'>
+      <img src='static/images/dandelion-1200-400.jpg' width='1200' height='400' alt='dandelion'>
+      <img src='static/images/ladybug-1200-400.jpg' width='1200' height='400' alt='ladybug'>
+      <img src='static/images/PinkConeflower-1200-400.jpg' width='1200' height='400' alt='pinkConeFlower'>
+    </div>
+</div>
+
 <form class='button-container' id="form" method="GET">
     <label> Enter how many words you want
         <input class='num' type= 'number'>
