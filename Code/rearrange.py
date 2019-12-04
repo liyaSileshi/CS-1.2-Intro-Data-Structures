@@ -16,6 +16,7 @@ def random_rearrange(words):
         temp.remove(pick)  
     return new_word
     
+# https://bost.ocks.org/mike/shuffle/
 def fisher_yates(words):
     m = len(words)
 

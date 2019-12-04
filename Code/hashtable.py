@@ -194,17 +194,17 @@ def test_hash_table():
 
 
 if __name__ == '__main__':
-    # test_hash_table()
-    ht = HashTable()
+    test_hash_table()
+    # ht = HashTable()
 
-    ht['liya'] = 'myself'
-    ht['josi'] = 'bro'
-    ht['boni'] = 'sis'
-    print(ht.items())
+    # ht['liya'] = 'myself'
+    # ht['josi'] = 'bro'
+    # ht['boni'] = 'sis'
+    # print(ht.items())
     # print(ht)
     # print(ht['liya'])
-    for i in ht:
-        print(i)
+    # for i in ht:
+    #     print(i)
     # print(len(ht))
     # print(iter(ht.items()))
     # print(next(ht.items()))
