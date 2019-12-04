@@ -11,8 +11,9 @@ class HashTable(object):
         self.size = 0
 
     def __iter__(self):
-        """ Returns the iteator object """
-        return self.items()
+        """ Iterates through the tuples in the list """
+        for node in self.items():
+            yield node
     
     def __next__(self):
         #  while self.items() != None:
@@ -22,9 +23,9 @@ class HashTable(object):
         # raise StopIteration
         # pass
         # curr = self.items()[0]
-        for i in self.items():
-            yield i
-        raise StopIteration
+        # for i in self.items():
+        #     yield i
+        # raise StopIteration
         pass
 
     def __str__(self):
@@ -136,7 +137,7 @@ class HashTable(object):
 
     def delete(self, key):
         """Delete the given key from this hash table, or raise KeyError.
-        
+
         Running time: O(1) if there is only one item in the bucket or if the
         key is found on the first node in the bucket. O(l) if the key is found
         in the last node of the linked list bucket, or if it's not found at all. """
@@ -193,17 +194,17 @@ def test_hash_table():
 
 
 if __name__ == '__main__':
-    test_hash_table()
-    # ht = HashTable()
+    # test_hash_table()
+    ht = HashTable()
 
-    # ht['liya'] = 'myself'
-    # ht['josi'] = 'bro'
-    # ht['boni'] = 'sis'
-    # print(ht.items())
+    ht['liya'] = 'myself'
+    ht['josi'] = 'bro'
+    ht['boni'] = 'sis'
+    print(ht.items())
     # print(ht)
     # print(ht['liya'])
-    # for i in ht.items():
-    #     print(i)
+    for i in ht:
+        print(i)
     # print(len(ht))
     # print(iter(ht.items()))
     # print(next(ht.items()))
