@@ -57,4 +57,4 @@ def markov(list_of_words):
 
 if __name__ == '__main__':
     words = tokens('words.txt')
-    markov(words)
+    print(markov(words))
