@@ -16,9 +16,9 @@ class Markov(dict):
         
             if tuple(words[i: i+order]) not in self.keys():
                 self[tuple(words[i: i+order])] = []
-
+                self.types += 1
             self[tuple(words[i: i+order])].append(tuple(words[ i+1 : i+order+1 ]))
-            
+            self.tokens += 1
         for key in self.keys():
             self[key] = dictogram.Dictogram(self[key])
         # return sekf
