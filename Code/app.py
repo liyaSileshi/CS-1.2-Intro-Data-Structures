@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import os
-from markov import markov
+# from markov import markov
+from markov_higher import Markov
 
 import cleanup
 from tokenize_word import tokens
@@ -19,13 +20,24 @@ def index():
 @app.route("/data")
 def data():
   words = tokens('alice.txt')
-  sentence = markov(words)
+  q = int(request.args.get('q'))
+  # book = request.args.get('book')
+  # if book == 'a':
+  #   words = tokens('alice.txt')
+  # elif book == 'b':
+  #   words = tokens('bob.txt')
+  markov = Markov(words, 3)
+  # if request.method == 'GET':
+  #       search_term = request.args.get('q')
+  #       print(search_term)
+  sentence = markov.get_str(q).capitalize()
+  sentence += '.'
   # histogram = word_count.hist_dictionary('words.txt')
   # sent = sentence.sentence(histogram, 5)
   # define some data
   s = {
     'sentence' : sentence,
-    'num': 5
+    'num': q
   }
   return jsonify(s)  
 

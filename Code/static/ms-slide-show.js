@@ -6,6 +6,7 @@ function makeSlideshow(slides) {
   const slidesInner = slides.querySelector('.slides-inner')
   const images = slidesInner.querySelectorAll('img')
   const rand = document.getElementById('form')
+  const text = document.getElementById('textSlide')
   // --------------------------------------------------
   // Setup buttons
   const prev = slides.querySelector('.prev-button')
