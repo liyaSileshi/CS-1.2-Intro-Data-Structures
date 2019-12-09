@@ -17,7 +17,7 @@ body > h1, h3{
 
 body > h1 {
     font-size: 3em;
-    background: -webkit-linear-gradient(#eee, rgb(154, 202, 211));
+    background: -webkit-linear-gradient(rgb(42, 40, 40), rgb(39, 40, 41));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -115,10 +115,12 @@ ul a{
   footer{
       background-color: black;
       height: 12em;
+      margin-top: 17em;
   }
 
   footer > * {
       color: white;
+      
   }
 
   footer > p {
