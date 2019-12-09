@@ -4,7 +4,7 @@ function makeSlideshow(slides) {
   // const slides = document.getElementById(slidesId)
 
   const slidesInner = slides.querySelector('.slides-inner')
-  const images = slidesInner.querySelectorAll('img')
+  const images = slidesInner.querySelectorAll('*')
   const rand = document.getElementById('form')
   const text = document.getElementById('textSlide')
   // --------------------------------------------------
