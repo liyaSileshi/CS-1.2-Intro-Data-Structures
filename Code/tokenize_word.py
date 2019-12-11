@@ -8,7 +8,7 @@ def tokens(file_name):
     """
     clean_text = clean(file_name)
     split_words = clean_text.split()
-    # print(len(split_words))
+    print(len(split_words))
     return split_words
 if __name__ == '__main__':  
     words_list = tokens(sys.argv[1])

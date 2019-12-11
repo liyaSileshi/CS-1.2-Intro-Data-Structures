@@ -3,7 +3,8 @@ body{
     /* background: rgb(2,0,36);
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%,
                  rgba(224,6,124,1) 76%, rgba(0,212,255,1) 100%); */
-    background-color: #e9e6d9;
+    /* background-color: #e9e6d9; */
+    background-color: #E0D3AF;
     color: #333;
     margin:0;
 }
@@ -51,12 +52,8 @@ h3{
 #slides{
     height: 400px;
     width: 1200px;
-    border: 2px solid;
+    /* border: 2px solid; */
     margin: auto;
-}
-
-#form > label{
-    /* color: white; */
 }
 
 .num{
@@ -64,6 +61,7 @@ h3{
     font-size: 1em;
     width: 3em;
     padding: 0.75em;
+    border: none;
 }
 
 #form{
@@ -80,7 +78,7 @@ ul{
     margin: 0;
     justify-content: flex;
     padding: 1em;
-    background-color: black;
+    background-color: rgb(29, 28, 28);
 }
 
 /* nav{
@@ -113,7 +111,11 @@ ul a{
   }
 
   footer{
-      background-color: black;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      /* grid-template-rows: repeat(6, 1fr); */
+      grid-template-areas: 'a b';
+      background-color: rgb(29, 28, 28);
       height: 12em;
       margin-top: 17em;
   }
@@ -123,6 +125,20 @@ ul a{
       
   }
 
-  footer > p {
+  footer > a {
       padding-left: 4em;
+      margin-top: 1em;
+      text-decoration: none;
   }
+
+  .new {
+    grid-area: a;
+    font-size: 1.5em;
+  }
+
+ .old {
+    grid-area: b;
+    font-size: 1.5em;
+  }
+
+
