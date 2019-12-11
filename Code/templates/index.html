@@ -5,10 +5,10 @@
 <div id='slides' class='slide-show ms-slide-show' data-delay='0' data-transition='2000'>
     <div class='slides-inner'>
       <!-- <h2 id='textSlide'></h2> -->
-      <img src='static/images/letitsnow.jpg' width='1200' height='400' alt='bee'>
-      <img src='static/images/faults.png' width='1200' height='400' alt='beetle'>
-      <img src='static/images/quote1.jpg' width='1200' height='400' alt='dandelion'>
-      <img src='static/images/okay.jpeg' width='1200' height='400' alt='ladybug'>
+      <img src='static/images/letitsnow.jpg' width='1200' height='400' alt='snow'>
+      <img src='static/images/faults.png' width='1200' height='400' alt='faults'>
+      <img src='static/images/quote1.jpg' width='1200' height='400' alt='quote'>
+      <img src='static/images/okay.jpeg' width='1200' height='400' alt='okay'>
       <!-- <img src='static/images/PinkConeflower-1200-400.jpg' width='1200' height='400' alt='pinkConeFlower'> -->
     </div>
 </div>
@@ -16,10 +16,14 @@
 
 
 <form class='button-container' id="form" method="GET">
-    <label> Enter how many words you want
+    <label class='words'> Enter how many words you want
         <input class='num' type= 'number' name='q'>
     </label>
     <button type='button' class='update' id='random_sentence'>Generate new word</button>
+    <div class='tweet'>
+        <button type='button' class='update'>Add to favorites</button>
+        <button type='button' class='update' style='background-color: rgb(28, 95, 219);'>Tweet it!</button>
+    </div>
 </form>
 
 <footer>
