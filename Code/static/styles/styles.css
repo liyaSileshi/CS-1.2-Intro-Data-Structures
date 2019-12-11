@@ -1,10 +1,8 @@
 body{
     font-family: 'Gelasio', serif;
-    /* background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%,
-                 rgba(224,6,124,1) 76%, rgba(0,212,255,1) 100%); */
-    /* background-color: #e9e6d9; */
-    background-color: #E0D3AF;
+   
+    /* background-color: #E0D3AF; */
+    background-color: rgba(16, 152, 231, 0.986);
     color: #333;
     margin:0;
 }
