@@ -1,0 +1,8 @@
+{% extends 'base.html'%}
+
+{% block content %}
+{%for favorite in favorites%}
+<br>
+<p>{{favorite.sentence}}</p>
+{% endfor %}
+{% endblock %}
