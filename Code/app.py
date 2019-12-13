@@ -9,7 +9,8 @@ import word_count
 import sample
 import sentence
 
-client = MongoClient()
+host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Tweet')
+client = MongoClient(host=host)
 db = client.Tweet
 favorites = db.favorites
 app = Flask(__name__)
@@ -24,7 +25,6 @@ def index():
       
     return render_template('index.html')
 
-
 @app.route('/favorites', methods = ['GET'])
 def favorite():
   fav_sentence = request.args.get('sentence')
@@ -38,7 +38,6 @@ def favorite():
 @app.route('/show_favorite')
 def show():
   return render_template('favorite.html', favorites=favorites.find())
-
 
 @app.route("/data")
 def data():
@@ -63,4 +62,3 @@ def data():
 
 if __name__ == '__main__':
   app.run(debug=True, host='0.0.0.0', port=os.environ.get('PORT', 5000))
-  

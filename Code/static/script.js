@@ -30,18 +30,12 @@ sub_button.addEventListener('click', function(e){
   })
 })
 
-// async function foo(url){
-//   await console.log(json_sentence)
-//   console.log(url)
-
-// }
-
 fav.addEventListener('click', function(e){
   console.log("It's getting clicked!")
   console.log(json_sentence)
 
   // JSON.stringify(json_sentence)
-  
+
   const url = `/favorites?sentence=${json_sentence.sentence}`
   fetch(url).then(function(res){
     return res.json()
