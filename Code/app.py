@@ -10,8 +10,8 @@ import sample
 import sentence
 
 host = os.environ.get('MONGODB_URI', 'mongodb://localhost:27017/Tweet')
-client = MongoClient(host=host)
-db = client.Tweet
+client = MongoClient(host=f'{host}?retryWrites=false')
+db = client.get_default_database()
 favorites = db.favorites
 app = Flask(__name__)
 
