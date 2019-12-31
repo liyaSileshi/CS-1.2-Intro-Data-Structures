@@ -2,7 +2,12 @@ body{
     font-family: 'Gelasio', serif;
    
     /* background-color: #E0D3AF; */
-    background-color: rgba(16, 152, 231, 0.986);
+    background-color:#00acee;
+    /* background-image:url(/Users/liyatilahun/dev/cs1.2/CS-1.2-Intro-Data-Structures/Code/static/images/cloud.jpg) ;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; */
     color: #333;
     margin:0;
 }
@@ -72,7 +77,10 @@ ul{
     margin: 0;
     justify-content: flex;
     padding: 1em;
-    background-color: rgb(29, 28, 28);
+    /* background-color: rgb(15, 74, 163); */
+    border-bottom-style: solid;
+    border-width: 1.5px;
+    border-color: rgb(3, 116, 221);
 }
 
 /* nav{
@@ -109,9 +117,12 @@ ul a{
       grid-template-columns: repeat(2, 1fr);
       /* grid-template-rows: repeat(6, 1fr); */
       grid-template-areas: 'a b';
-      background-color: rgb(29, 28, 28);
+      /* background-color: rgb(39, 124, 221); */
       height: 12em;
       margin-top: 17em;
+      border-top-style: solid;
+      border-width: 1.5px;
+      border-color: rgb(3, 116, 221);
   }
 
   footer > * {
